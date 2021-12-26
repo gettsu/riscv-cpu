@@ -389,7 +389,7 @@ uart uart0(
     .sys_clk_i(clk),
     .sys_rstn_i(rst)
 );
-/*
+
 reg [31:0] irpreRR1, irRR1, irEX1, irMA1;
 reg [31:0] EXpc1, MApc1;
 reg [31:0] read_addressMA1, write_addressMA1, storevalue_wordMA1;
@@ -403,11 +403,11 @@ reg [31:0] read_addressMA2, write_addressMA2, storevalue_wordMA2;
 reg is_storeMA2;
 reg [5:0] alucodeEX2, alucodeMA2;
 reg [31:0] r_data2EX2, r_data2MA2;
-*/
+
 always @(posedge clk or negedge rst) begin
     if (!rst) begin
         pc <= 32'h8000;
-/*
+
         irpreRR1 <= 32'd0;
         irRR1 <= 32'd0;;
         irEX1 <= 32'd0;
@@ -441,7 +441,7 @@ always @(posedge clk or negedge rst) begin
     end
     else begin
         pc <= npc;
-        /*
+
         irpreRR1 <= ir1;
         irRR1 <= irpreRR1;
         irEX1 <= irRR1;
@@ -473,7 +473,7 @@ always @(posedge clk or negedge rst) begin
         r_data2EX2 <= r_data22;
         */
     end
-    /*
+
     if (irMA1!=0 && MApc1!=0) begin
         if (is_loadMA1) begin
             if (alucodeMA1 == `ALU_LW) $display("0x%h: 0x%h # x%02d = 0x%h;      0x%h <- mem[0x%h]",MApc1[15:0], irMA1, dstregRW1,wb_dataRW1,load_reg_valueMA1, read_addressMA1);
@@ -504,7 +504,7 @@ always @(posedge clk or negedge rst) begin
         end
         else $display("0x%h: 0x%h # (no destination)",MApc2[15:0], irMA2);
     end
-    */
+
 end
 
 endmodule
